@@ -531,15 +531,13 @@ export default () => {
                     <Description>下载出现问题请检查是否有安装下载或者广告屏蔽相关的其他扩展，他们可能导致会处理浏览器的默认行为导致助手下载功能异常</Description>
                     <Description>合并下载会先下载至内存最后弹出另存为窗口。当卡住时，请下载分段</Description>
                     <Container>
-                        {hasCopyright() ? <LinkGroup><LinkGroupTitle>由于版权限制禁止下载，非版权视频不受影响</LinkGroupTitle></LinkGroup> : (
-                            <React.Fragment>
-                                {loadedVideo && (loadedVideo.durl || loadedVideo.dash) && this.renderFLV()}
-                                {!videoData[currentCid] ? <LinkGroupTitle>
-                                    {!errorStr && <p>请尝试切换视频清晰度 或 切换到旧播放页面</p>}
-                                    {errorStr && <p>{errorStr}</p>}
-                                </LinkGroupTitle> : null}
-                            </React.Fragment>
-                        )}
+                        <React.Fragment>
+                            {loadedVideo && (loadedVideo.durl || loadedVideo.dash) && this.renderFLV()}
+                            {!videoData[currentCid] ? <LinkGroupTitle>
+                                {!errorStr && <p>请尝试切换视频清晰度 或 切换到旧播放页面</p>}
+                                {errorStr && <p>{errorStr}</p>}
+                            </LinkGroupTitle> : null}
+                        </React.Fragment>
                     </Container>
                 </React.Fragment>
             );
